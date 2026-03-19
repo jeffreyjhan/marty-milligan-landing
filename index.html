@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Digital Audit Checklist — Martin Milligan · Digital Onramp WSI</title>
+  <meta name="description" content="Download the free WV Business Digital Marketing Audit Checklist. 12 things every West Virginia business needs to get right online." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@300;400;500;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:         #06111E;
+      --surface:    #0B1C2E;
+      --surface-hi: #0F2340;
+      --border:     rgba(255,255,255,0.07);
+      --border-hi:  rgba(0,182,204,0.22);
+      --text:       #E8F0F7;
+      --muted:      #6A90AA;
+      --soft:       #A8C4D4;
+      --teal:       #00B6CC;
+      --teal-hi:    #00D8EE;
+      --teal-dim:   rgba(0,182,204,0.10);
+      --teal-glow:  rgba(0,182,204,0.18);
+      --max:        1160px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Noise — fixed pseudo, pointer-events-none, GPU-safe */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.025;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 48px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 20px;
+    }
+    .eyebrow::before { content: ''; width: 24px; height: 1.5px; background: var(--teal); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 30px;
+      background: var(--teal);
+      color: #fff;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      will-change: transform;
+      transition: background 0.2s cubic-bezier(0.16,1,0.3,1), transform 0.15s cubic-bezier(0.16,1,0.3,1), box-shadow 0.2s;
+    }
+    .btn:hover { background: var(--teal-hi); transform: translateY(-2px); box-shadow: 0 8px 28px -6px var(--teal-glow); }
+    .btn:active { transform: translateY(-1px) scale(0.98); }
+    .btn-ghost { background: transparent; color: var(--teal); border: 1.5px solid rgba(0,182,204,0.38); }
+    .btn-ghost:hover { background: var(--teal-dim); border-color: var(--teal); box-shadow: none; }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      height: 66px;
+      display: flex;
+      align-items: center;
+      background: rgba(6,17,30,0.85);
+      backdrop-filter: blur(18px) saturate(160%);
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.3s;
+    }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    nav.lit { border-bottom-color: var(--border-hi); }
+
+    .nav-brand { text-decoration: none; line-height: 1.25; }
+    .nav-brand-name { display: block; font-size: 15px; font-weight: 800; color: var(--text); letter-spacing: -0.01em; }
+    .nav-brand-sub { display: block; font-size: 11px; color: var(--muted); font-weight: 400; }
+
+    /* HERO */
+    .hero {
+      min-height: 100dvh;
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      align-items: center;
+      padding-top: 66px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -20%; right: -8%;
+      width: 660px; height: 660px;
+      background: radial-gradient(circle, rgba(0,182,204,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-copy { padding: 100px 72px 100px 0; position: relative; z-index: 1; }
+    .hero-copy h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(44px, 5.5vw, 68px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+    .hero-copy h1 em { font-style: italic; color: var(--teal); }
+    .hero-desc { font-size: 18px; color: var(--soft); line-height: 1.78; max-width: 54ch; margin-bottom: 40px; font-weight: 400; }
+    .hero-nudge { display: flex; align-items: center; gap: 14px; margin-top: 26px; }
+    .nudge-ring {
+      width: 40px; height: 40px; flex-shrink: 0;
+      border-radius: 50%; border: 1.5px solid rgba(0,182,204,0.32);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nudge-ring svg { width: 16px; height: 16px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .nudge-text { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .nudge-text strong { display: block; color: var(--soft); font-weight: 600; }
+
+    /* Form panel */
+    .hero-form-wrap {
+      position: relative; z-index: 1;
+      padding: 80px 0 80px 64px;
+      border-left: 1px solid var(--border);
+      height: 100%;
+      display: flex; align-items: center;
+    }
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 44px 40px;
+      width: 100%;
+      position: relative;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 30px 70px -20px rgba(0,0,0,0.55);
+    }
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--teal) 50%, transparent);
+      border-radius: 12px 12px 0 0;
+      opacity: 0.75;
+    }
+    .form-card-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+    .form-card h3 { font-family: 'Instrument Serif', serif; font-size: 24px; font-weight: 400; line-height: 1.3; margin-bottom: 8px; }
+    .form-card .form-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; line-height: 1.5; }
+
+    .field { margin-bottom: 11px; position: relative; }
+    .field input {
+      width: 100%; padding: 13px 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 15px; outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .field input:focus { border-color: rgba(0,182,204,0.55); background: rgba(0,182,204,0.04); }
+    .field input::placeholder { color: var(--muted); }
+    .field input.err { border-color: rgba(255,100,100,0.5); }
+    .field .err-msg { font-size: 12px; color: #ff7b7b; margin-top: 5px; display: none; }
+    .field.invalid .err-msg { display: block; }
+
+    .form-submit { width: 100%; padding: 15px; font-size: 16px; margin-top: 4px; justify-content: center; }
+    .form-fine { text-align: center; font-size: 12px; color: var(--muted); margin-top: 14px; opacity: 0.55; }
+
+    .form-success { display: none; text-align: center; padding: 20px 0; }
+    .success-ring {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: var(--teal-dim); border: 1.5px solid var(--border-hi);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+    }
+    .success-ring svg { width: 22px; height: 22px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .form-success h4 { font-family: 'Instrument Serif', serif; font-size: 24px; font-weight: 400; margin-bottom: 8px; }
+    .form-success p { font-size: 15px; color: var(--muted); }
+
+    /* DIVIDER */
+    .hr { height: 1px; background: linear-gradient(90deg, transparent, var(--border-hi), transparent); margin: 0 48px; }
+
+    /* CHECKLIST */
+    .section { padding: 120px 0; }
+
+    .checklist-grid { display: grid; grid-template-columns: 1fr 460px; gap: 96px; align-items: start; }
+    .section-h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 400; line-height: 1.15;
+      letter-spacing: -0.02em; margin-bottom: 20px;
+    }
+    .section-h2 em { font-style: italic; color: var(--teal); }
+    .section-p { font-size: 17px; color: var(--soft); line-height: 1.8; margin-bottom: 44px; max-width: 52ch; }
+
+    .items { list-style: none; }
+    .item {
+      display: flex; gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .item:first-child { border-top: 1px solid var(--border); }
+    .item:hover { border-bottom-color: var(--border-hi); }
+    .item-n { font-family: 'Instrument Serif', serif; font-size: 13px; font-style: italic; color: var(--teal); min-width: 22px; padding-top: 2px; }
+    .item-body { font-size: 15px; color: var(--soft); line-height: 1.55; }
+    .item-body strong { display: block; color: var(--text); font-weight: 600; margin-bottom: 2px; font-size: 15px; }
+
+    /* Doc mockup */
+    .doc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: -20px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 40px 80px -30px rgba(0,0,0,0.6);
+    }
+    .doc-bar { background: var(--surface-hi); padding: 13px 20px; display: flex; align-items: center; gap: 7px; border-bottom: 1px solid var(--border); }
+    .doc-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .doc-fname { font-size: 12px; color: var(--muted); margin-left: 8px; font-weight: 500; }
+    .doc-hd { padding: 26px 28px 16px; border-bottom: 1px solid var(--border); }
+    .doc-hd-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+    .doc-hd-title { font-family: 'Instrument Serif', serif; font-size: 18px; font-weight: 400; line-height: 1.3; }
+    .doc-rows { padding: 6px 0; }
+    .doc-row { display: flex; align-items: center; gap: 14px; padding: 13px 28px; border-bottom: 1px solid rgba(255,255,255,0.03); transition: background 0.15s; }
+    .doc-row:last-child { border-bottom: none; }
+    .doc-row:hover { background: rgba(0,182,204,0.04); }
+    .doc-rn { font-family: 'Instrument Serif', serif; font-size: 18px; font-style: italic; color: var(--teal); min-width: 28px; }
+    .doc-rt { font-size: 14px; color: var(--soft); }
+
+    /* STATS */
+    .stats-head { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: end; margin-bottom: 64px; }
+    .stats-head h2 { font-family: 'Instrument Serif', serif; font-size: clamp(34px,4vw,52px); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; }
+    .stats-head p { font-size: 16px; color: var(--soft); line-height: 1.75; }
+    .stats-head p em { display: block; font-size: 12px; color: var(--muted); font-style: normal; margin-top: 10px; opacity: 0.65; }
+
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .stat { background: var(--surface); padding: 48px 44px; transition: background 0.2s; position: relative; overflow: hidden; }
+    .stat::after { content: ''; position: absolute; inset: 0; border: 1px solid var(--border); pointer-events: none; }
+    .stat:hover { background: var(--surface-hi); }
+    .stat:nth-child(1) { border-radius: 10px 0 0 0; }
+    .stat:nth-child(2) { border-radius: 0 10px 0 0; }
+    .stat:nth-child(3) { border-radius: 0 0 0 10px; }
+    .stat:nth-child(4) { border-radius: 0 0 10px 0; }
+    .stat-n { font-family: 'Instrument Serif', serif; font-size: 64px; font-weight: 400; color: var(--teal); line-height: 1; letter-spacing: -0.03em; margin-bottom: 14px; }
+    .stat-lbl { font-size: 15px; color: var(--soft); line-height: 1.5; margin-bottom: 10px; max-width: 28ch; }
+    .stat-src { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); opacity: 0.5; }
+    .stats-note { font-size: 12px; color: var(--muted); margin-top: 20px; text-align: center; opacity: 0.45; }
+
+    /* CASES — zig-zag, no 3-equal-cards */
+    .cases-a { display: grid; grid-template-columns: 3fr 2fr; gap: 2px; }
+    .cases-b { display: grid; grid-template-columns: 2fr 3fr; gap: 2px; margin-top: 2px; }
+    .case {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 48px 44px;
+      border-radius: 10px;
+      transition: border-color 0.25s, transform 0.25s cubic-bezier(0.16,1,0.3,1);
+    }
+    .case:hover { border-color: var(--border-hi); transform: translateY(-3px); }
+    .cases-a .case:first-child { border-radius: 10px 0 0 10px; }
+    .cases-a .case:last-child { border-radius: 0 10px 10px 0; }
+    .cases-b .case:first-child { border-radius: 10px 0 0 10px; }
+    .cases-b .case:last-child { border-radius: 0 10px 10px 0; }
+    .case-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); opacity: 0.7; margin-bottom: 18px; }
+    .case-result { font-family: 'Instrument Serif', serif; font-size: 34px; font-weight: 400; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 16px; }
+    .case-body { font-size: 15px; color: var(--soft); line-height: 1.7; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 300px 1fr; gap: 88px; align-items: start; }
+    .photo-wrap { position: relative; }
+    .photo-wrap img { width: 100%; display: block; border-radius: 8px; filter: grayscale(15%) contrast(1.05); }
+    .photo-wrap::after {
+      content: ''; position: absolute;
+      inset: 12px -12px -12px 12px;
+      border: 1px solid var(--border-hi); border-radius: 8px;
+      z-index: -1; opacity: 0.45;
+    }
+    .about-h2 { font-family: 'Instrument Serif', serif; font-size: clamp(30px,3.5vw,48px); font-weight: 400; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 28px; }
+    .about-p { font-size: 16px; color: var(--soft); line-height: 1.8; margin-bottom: 20px; max-width: 58ch; }
+    .creds { display: flex; gap: 40px; flex-wrap: wrap; padding-top: 36px; margin-top: 36px; border-top: 1px solid var(--border); }
+    .cred-n { font-family: 'Instrument Serif', serif; font-size: 38px; font-weight: 400; color: var(--teal); line-height: 1; margin-bottom: 4px; }
+    .cred-l { font-size: 13px; color: var(--muted); }
+
+    /* CTA */
+    .cta-wrap { position: relative; overflow: hidden; }
+    .cta-wrap::before {
+      content: ''; position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 960px; height: 480px;
+      background: radial-gradient(ellipse, rgba(0,182,204,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-inner { max-width: 640px; position: relative; }
+    .cta-h2 { font-family: 'Instrument Serif', serif; font-size: clamp(36px,5vw,58px); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
+    .cta-p { font-size: 18px; color: var(--soft); line-height: 1.7; margin-bottom: 36px; max-width: 50ch; }
+    .cta-row { display: flex; gap: 10px; }
+    .cta-row input {
+      flex: 1; padding: 14px 20px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 6px; color: var(--text);
+      font-family: 'Cabinet Grotesk', sans-serif; font-size: 15px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .cta-row input:focus { border-color: rgba(0,182,204,0.55); }
+    .cta-row input::placeholder { color: var(--muted); }
+    .cta-fine { font-size: 12px; color: var(--muted); margin-top: 14px; opacity: 0.5; }
+    .cta-ok { display: none; }
+    .cta-ok h4 { font-family: 'Instrument Serif', serif; font-size: 22px; color: var(--teal); margin-bottom: 6px; }
+    .cta-ok p { font-size: 15px; color: var(--muted); }
+
+    /* FOOTER */
+    footer { padding: 36px 0; border-top: 1px solid var(--border); }
+    footer .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .footer-brand { font-size: 15px; font-weight: 800; color: var(--text); }
+    .footer-brand span { color: var(--teal); opacity: 0.45; margin: 0 6px; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { font-size: 12px; color: var(--muted); opacity: 0.4; }
+
+    /* REVEAL ANIMATION */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .rv { opacity: 1; }
+    .rv.ready { opacity: 0; }
+    .rv.on { animation: fadeUp 0.75s cubic-bezier(0.16,1,0.3,1) both; opacity: 1; }
+    .d1.on { animation-delay: 0.1s; }
+    .d2.on { animation-delay: 0.2s; }
+    .d3.on { animation-delay: 0.3s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; min-height: unset; padding-top: 86px; }
+      .hero-copy { padding: 52px 0 0; }
+      .hero-form-wrap { padding: 40px 0 60px; border-left: none; border-top: 1px solid var(--border); height: auto; }
+      .checklist-grid, .stats-head, .stats, .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .doc { margin-top: 0; }
+      .stats { gap: 2px; }
+      .stat:nth-child(1) { border-radius: 10px 10px 0 0; }
+      .stat:nth-child(2) { border-radius: 0; }
+      .stat:nth-child(3) { border-radius: 0; }
+      .stat:nth-child(4) { border-radius: 0 0 10px 10px; }
+      .cases-a, .cases-b { grid-template-columns: 1fr; }
+      .case, .cases-a .case, .cases-b .case { border-radius: 10px !important; }
+      .cta-row { flex-direction: column; }
+      .wrap { padding: 0 20px; }
+      .hr { margin: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="wrap">
+    <a href="#" class="nav-brand">
+      <span class="nav-brand-name">Marty Milligan</span>
+      <span class="nav-brand-sub">Digital Onramp WSI · Fairmont, WV</span>
+    </a>
+    <a href="#form" class="btn btn-ghost" style="padding:10px 22px;font-size:13px;">Get the Free Checklist</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-copy wrap" style="max-width:none;padding-right:72px;">
+    <div class="eyebrow">Free Resource · West Virginia Business Owners</div>
+    <h1>Is Your Website<br><em>Invisible</em> to the<br>Customers You Need?</h1>
+    <p class="hero-desc">Download the free <strong style="color:var(--text);font-weight:600;">WV Business Digital Audit Checklist</strong> — 12 things every West Virginia business needs to get right online, and a clear picture of which ones you're missing.</p>
+    <a href="#form" class="btn" style="font-size:16px;padding:16px 36px;">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1v10M3 7l5 5 5-5M1 13h14"/></svg>
+      Get the Free Checklist
+    </a>
+    <div class="hero-nudge">
+      <div class="nudge-ring">
+        <svg viewBox="0 0 16 16"><polyline points="1 9 6 14 15 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <p class="nudge-text">
+        <strong>No fluff. No sales pitch.</strong>
+        A working checklist you can use in 30 minutes to find exactly where your marketing is leaking money.
+      </p>
+    </div>
+  </div>
+
+  <div class="hero-form-wrap" id="form">
+    <div class="form-card">
+      <div class="form-card-eyebrow">Free Download</div>
+      <h3>The WV Business Digital Audit Checklist</h3>
+      <p class="form-sub">Instant access. No spam.</p>
+      <!-- Replace YOUR_FORM_ID: Formspree (easiest), Mailchimp, or ConvertKit action URL -->
+      <form id="hform" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <div class="field" id="fn-field">
+          <input type="text" name="first_name" placeholder="Your first name" autocomplete="given-name" />
+        </div>
+        <div class="field" id="em-field">
+          <input type="email" name="email" placeholder="Your business email" autocomplete="email" required />
+          <div class="err-msg">Please enter a valid email address.</div>
+        </div>
+        <button type="submit" class="btn form-submit">
+          Send Me the Checklist
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
+        </button>
+        <p class="form-fine">No spam. Unsubscribe anytime.</p>
+      </form>
+      <div class="form-success" id="hform-ok">
+        <div class="success-ring"><svg viewBox="0 0 22 22"><path d="M4 11l5 5 9-9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>You're in.</h4>
+        <p>Check your inbox — the checklist is on its way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKLIST PREVIEW -->
+<div class="hr"></div>
+<section class="section">
+  <div class="wrap">
+    <div class="checklist-grid">
+      <div>
+        <div class="eyebrow rv">What's Inside</div>
+        <h2 class="section-h2 rv d1">Stop Guessing.<br><em>Start Knowing</em><br>Where You Stand.</h2>
+        <p class="section-p rv d2">Most business owners know their website "isn't working" but have no clear picture of why. This checklist walks you through a full self-audit in under 30 minutes — no technical expertise required.</p>
+        <ul class="items">
+          <li class="item rv"><span class="item-n">01</span><div class="item-body"><strong>Google Search Visibility</strong>Why your competitors rank and you don't — and what specifically changes it</div></li>
+          <li class="item rv d1"><span class="item-n">02</span><div class="item-body"><strong>Google Business Profile</strong>The gaps that push local customers straight to your competitors</div></li>
+          <li class="item rv d2"><span class="item-n">03</span><div class="item-body"><strong>Website Speed & Mobile</strong>The performance issues that silently kill conversions every day</div></li>
+          <li class="item rv"><span class="item-n">04</span><div class="item-body"><strong>Lead Capture & Conversion</strong>Whether your site is built to generate leads or just look decent</div></li>
+          <li class="item rv d1"><span class="item-n">05</span><div class="item-body"><strong>Paid Ad Efficiency</strong>How to know if your ad spend is generating ROI or just burning budget</div></li>
+        </ul>
+      </div>
+
+      <div class="doc rv d2">
+        <div class="doc-bar">
+          <div class="doc-dot" style="background:#FF5F57"></div>
+          <div class="doc-dot" style="background:#FFBD2E"></div>
+          <div class="doc-dot" style="background:#28C940"></div>
+          <span class="doc-fname">WV Digital Audit Checklist.pdf</span>
+        </div>
+        <div class="doc-hd">
+          <div class="doc-hd-tag">Digital Onramp WSI · Martin Milligan</div>
+          <div class="doc-hd-title">West Virginia Business<br>Digital Marketing Audit</div>
+        </div>
+        <div class="doc-rows">
+          <div class="doc-row"><span class="doc-rn">01</span><span class="doc-rt">Google Search Visibility & Rankings</span></div>
+          <div class="doc-row"><span class="doc-rn">02</span><span class="doc-rt">Google Business Profile Completeness</span></div>
+          <div class="doc-row"><span class="doc-rn">03</span><span class="doc-rt">Website Speed & Mobile Performance</span></div>
+          <div class="doc-row"><span class="doc-rn">04</span><span class="doc-rt">Lead Capture & Conversion Paths</span></div>
+          <div class="doc-row"><span class="doc-rn">05</span><span class="doc-rt">Paid Advertising Efficiency</span></div>
+          <div class="doc-row"><span class="doc-rn">06</span><span class="doc-rt">Online Reviews & Reputation Score</span></div>
+          <div class="doc-row" style="opacity:0.55"><span class="doc-rn" style="font-size:15px;color:var(--muted)">+6</span><span class="doc-rt" style="font-style:italic">More inside the full checklist...</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="hr"></div>
+<section class="section">
+  <div class="wrap">
+    <div class="stats-head rv">
+      <h2>What's Possible When the Strategy Is Right</h2>
+      <p>These are real results from businesses across the WSI global network — the same proven playbooks and specialist team Marty brings to every West Virginia client.
+        <em>Results from WSI global network clients. Individual results vary based on market, competition, and strategy applied.</em>
+      </p>
+    </div>
+    <div class="stats rv d1">
+      <div class="stat"><div class="stat-n">47K+</div><div class="stat-lbl">New website visitors generated from a single targeted campaign</div><div class="stat-src">Healthcare · Echo Audiology</div></div>
+      <div class="stat"><div class="stat-n">853%</div><div class="stat-lbl">Keyword ranking growth — website traffic tripled</div><div class="stat-src">Finance · Nour Private Wealth</div></div>
+      <div class="stat"><div class="stat-n">139%</div><div class="stat-lbl">Month-over-month revenue growth after strategy rebuild</div><div class="stat-src">Home Services · Master Services</div></div>
+      <div class="stat"><div class="stat-n">25K+</div><div class="stat-lbl">Monthly visitors driven by a new website and content strategy</div><div class="stat-src">Tourism · Métis Crossing</div></div>
+    </div>
+    <p class="stats-note">Results from WSI global network clients. Individual results will vary.</p>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<div class="hr"></div>
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow rv">By Industry</div>
+    <h2 class="section-h2 rv d1" style="margin-bottom:52px;">Results Across Different Markets</h2>
+    <div class="cases-a">
+      <div class="case rv"><div class="case-tag">Healthcare</div><div class="case-result">47,000+ New Visitors</div><p class="case-body">A regional hearing clinic targeting patients over 60. A redesigned website paired with a targeted SEO and Google Ads campaign produced 47,000 new visitors, 1,600 online conversions, and 241 direct sales conversions from a single coordinated push.</p></div>
+      <div class="case rv d1"><div class="case-tag">Home Services · HVAC</div><div class="case-result">139% MoM Growth</div><p class="case-body">After losing their in-house marketing team, Master Services was generating zero leads. WSI rebuilt the strategy from scratch — delivering a 12% conversion rate (10 points above industry average) and 40 qualified leads per month.</p></div>
+    </div>
+    <div class="cases-b">
+      <div class="case rv"><div class="case-tag">Finance</div><div class="case-result">853% Keyword Growth</div><p class="case-body">Nour Private Wealth was invisible in search. An SEO-first strategy tripled website traffic and built durable organic authority in one of the most competitive digital categories.</p></div>
+      <div class="case rv d1"><div class="case-tag">Tourism</div><div class="case-result">25,000 Monthly Visitors</div><p class="case-body">Métis Crossing needed a digital presence matching the scale of their cultural site. A new website strategy consistently delivers 25,000+ monthly visitors — converting intent online before visitors arrive in person.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="hr"></div>
+<section class="section">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="photo-wrap rv">
+        <img src="https://picsum.photos/seed/martymilligan/600/700" alt="Martin Milligan, Digital Onramp WSI" />
+      </div>
+      <div>
+        <div class="eyebrow rv">Your Consultant</div>
+        <h2 class="about-h2 rv d1">30 Years Solving Business Problems. Now Applied to Digital.</h2>
+        <p class="about-p rv d2">I'm Marty Milligan. Before WSI, I spent three decades delivering consulting and technical solutions to businesses and government agencies across West Virginia. That history shapes how I work with every client today.</p>
+        <p class="about-p rv">I'm not here to sell you a package. I'm here to understand what's actually wrong — why your marketing isn't generating what it should — and build a strategy specific to your market and goals.</p>
+        <p class="about-p rv d1">Based in Fairmont, I serve businesses statewide. I work with small business owners who want more inbound leads and with marketing executives who need a partner that understands both strategy and execution.</p>
+        <div class="creds rv d2">
+          <div><div class="cred-n">30+</div><div class="cred-l">Years consulting</div></div>
+          <div><div class="cred-n">WV</div><div class="cred-l">Statewide coverage</div></div>
+          <div><div class="cred-n">WSI</div><div class="cred-l">80+ country network</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="hr"></div>
+<section class="section cta-wrap">
+  <div class="wrap">
+    <div class="cta-inner rv">
+      <div class="eyebrow">Free Download</div>
+      <h2 class="cta-h2">Ready to See Where You Actually Stand?</h2>
+      <p class="cta-p">Get the free checklist and walk away knowing exactly what's holding your website back from generating the leads your business needs.</p>
+      <form class="cta-row" id="cform" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <input type="email" name="email" placeholder="Your business email address" required />
+        <button type="submit" class="btn" style="white-space:nowrap;">Get the Checklist <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.5h11M7 2l5 4.5L7 11"/></svg></button>
+      </form>
+      <div class="cta-ok" id="cform-ok">
+        <h4>On its way.</h4>
+        <p>Check your inbox for the checklist.</p>
+      </div>
+      <p class="cta-fine">No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-brand">Marty Milligan <span>·</span> Digital Onramp WSI</div>
+    <div class="footer-links">
+      <a href="tel:+13049000392">+1 (304) 900-0392</a>
+      <a href="/cdn-cgi/l/email-protection#9cf1fdeee8e5dcf8f5fbf5e8fdf0f3f2eefdf1ecebeff5b2fff3f1"><span class="__cf_email__" data-cfemail="deb3bfacaaa79ebab7b9b7aabfb2b1b0acbfb3aea9adb7f0bdb1b3">[email&#160;protected]</span></a>
+      <a href="http://www.digitalonrampwsi.com" target="_blank" rel="noopener noreferrer">Full Website ↗</a>
+    </div>
+    <div class="footer-copy">© 2026 Digital Onramp WSI · Fairmont, WV</div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Nav lit on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('lit', scrollY > 50), { passive: true });
+
+  // Scroll reveal — mark elements ready first so they start hidden, then animate in
+  const allRv = document.querySelectorAll('.rv');
+  allRv.forEach(el => el.classList.add('ready'));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.remove('ready');
+        e.target.classList.add('on');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  allRv.forEach(el => io.observe(el));
+
+  // Form AJAX + validation
+  function wire(formId, successId) {
+    const form = document.getElementById(formId);
+    const ok = document.getElementById(successId);
+    if (!form || !ok) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const em = form.querySelector('[type="email"]');
+      const emField = em?.closest('.field');
+      const valid = em && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value);
+      if (!valid) { emField?.classList.add('invalid'); em?.classList.add('err'); return; }
+      emField?.classList.remove('invalid'); em?.classList.remove('err');
+      const btn = form.querySelector('[type="submit"]');
+      const orig = btn.innerHTML;
+      btn.innerHTML = 'Sending…'; btn.disabled = true;
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (res.ok) { form.style.display = 'none'; ok.style.display = 'block'; }
+        else { btn.innerHTML = orig; btn.disabled = false; form.submit(); }
+      } catch { btn.innerHTML = orig; btn.disabled = false; form.submit(); }
+    }
